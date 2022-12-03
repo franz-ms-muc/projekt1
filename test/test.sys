@@ -7,11 +7,11 @@
 			<FB Name="DigitalInput_I1" Type="IX" Comment="" x="380.0" y="912.0">
 				<Parameter Name="QI" Value="TRUE"/>
 			</FB>
-			<FB Name="DigitalOutput_Q1" Type="QX" Comment="" x="1540.0" y="912.0">
+			<FB Name="DigitalOutput_Q1" Type="QX" Comment="" x="1600.0" y="960.0">
 				<Parameter Name="QI" Value="TRUE"/>
 			</FB>
 			<EventConnections>
-				<Connection Source="DigitalInput_I1.INITO" Destination="DigitalOutput_Q1.INIT" Comment=""/>
+				<Connection Source="DigitalInput_I1.INITO" Destination="DigitalOutput_Q1.INIT" Comment="" dx1="316.0"/>
 				<Connection Source="DigitalInput_I1.IND" Destination="DigitalOutput_Q1.REQ" Comment="" dx1="96.0"/>
 			</EventConnections>
 			<DataConnections>
