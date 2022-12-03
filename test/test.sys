@@ -67,7 +67,7 @@
 			</FB>
 			<EventConnections>
 				<Connection Source="DigitalInput_I2_SINGLE_CLICK.IND" Destination="E_T_FF.CLK" Comment=""/>
-				<Connection Source="DigitalInput_I2_SINGLE_CLICK.INITO" Destination="DigitalOutput_Q2.INIT" Comment="" dx1="800.0" dx2="460.0" dy="-104.0"/>
+				<Connection Source="DigitalInput_I2_SINGLE_CLICK.INITO" Destination="DigitalOutput_Q2.INIT" Comment="" dx1="532.0" dx2="460.0" dy="-104.0"/>
 				<Connection Source="E_T_FF.EO" Destination="DigitalOutput_Q2.REQ" Comment=""/>
 			</EventConnections>
 			<DataConnections>
