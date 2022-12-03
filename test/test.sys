@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System Name="test" Comment="">
+	<VersionInfo Version="1.0" Author="hf" Date="2022-12-03">
+	</VersionInfo>
+	<Application Name="App1" Comment="">
+		<SubAppNetwork>
+			<FB Name="DigitalInput_I1" Type="IX" Comment="" x="380.0" y="912.0">
+				<Parameter Name="QI" Value="TRUE"/>
+			</FB>
+			<FB Name="DigitalOutput_Q1" Type="QX" Comment="" x="1540.0" y="912.0">
+				<Parameter Name="QI" Value="TRUE"/>
+			</FB>
+			<EventConnections>
+				<Connection Source="DigitalInput_I1.INITO" Destination="DigitalOutput_Q1.INIT" Comment=""/>
+				<Connection Source="DigitalInput_I1.IND" Destination="DigitalOutput_Q1.REQ" Comment="" dx1="96.0"/>
+			</EventConnections>
+			<DataConnections>
+				<Connection Source="DigitalInput_I1.IN" Destination="DigitalOutput_Q1.OUT" Comment="" dx1="96.0"/>
+			</DataConnections>
+		</SubAppNetwork>
+	</Application>
+	<Application Name="Mapping" Comment="">
+		<SubAppNetwork>
+			<FB Name="Hutschienenmoped_3_DI" Type="Hutschienenmoped_3_DI" Comment="" x="636.0" y="2064.0">
+				<Parameter Name="QI" Value="TRUE"/>
+				<Parameter Name="u8SAMember" Value="255"/>
+				<Parameter Name="u16ObjId" Value="65535"/>
+				<Parameter Name="DigitalInput_I1" Value="&quot;DigitalInput_I1&quot;"/>
+				<Parameter Name="DigitalInput_I2" Value="&quot;DigitalInput_I2&quot;"/>
+				<Parameter Name="DigitalInput_I3" Value="&quot;DigitalInput_I3&quot;"/>
+			</FB>
+			<FB Name="Hutschienenmoped_3_DI_SINGLE_CLICK" Type="Hutschienenmoped_3_DI_SINGLE_CLICK" Comment="" x="636.0" y="3204.0">
+				<Parameter Name="QI" Value="TRUE"/>
+				<Parameter Name="u8SAMember" Value="255"/>
+				<Parameter Name="u16ObjId" Value="65535"/>
+				<Parameter Name="DigitalInput_I1" Value="&quot;DigitalInput_I1_SINGLE_CLICK&quot;"/>
+				<Parameter Name="DigitalInput_I2" Value="&quot;DigitalInput_I2_SINGLE_CLICK&quot;"/>
+				<Parameter Name="DigitalInput_I3" Value="&quot;DigitalInput_I3_SINGLE_CLICK&quot;"/>
+			</FB>
+			<FB Name="E_FWD" Type="E_FWD" Comment="" x="-1400.0" y="912.0">
+			</FB>
+			<FB Name="Hutschienenmoped_4_DO" Type="Hutschienenmoped_4_DO" Comment="" x="636.0" y="912.0">
+				<Parameter Name="QI" Value="TRUE"/>
+				<Parameter Name="u8SAMember" Value="255"/>
+				<Parameter Name="u16ObjId" Value="65535"/>
+				<Parameter Name="DigitalOutput_Q1" Value="&quot;DigitalOutput_Q1&quot;"/>
+				<Parameter Name="DigitalOutput_Q2" Value="&quot;DigitalOutput_Q2&quot;"/>
+				<Parameter Name="DigitalOutput_Q3" Value="&quot;DigitalOutput_Q3&quot;"/>
+				<Parameter Name="DigitalOutput_Q4" Value="&quot;DigitalOutput_Q4&quot;"/>
+			</FB>
+			<EventConnections>
+				<Connection Source="E_FWD.CNF" Destination="Hutschienenmoped_3_DI.INIT" Comment="" dx1="44.0"/>
+				<Connection Source="E_FWD.CNF" Destination="Hutschienenmoped_3_DI_SINGLE_CLICK.INIT" Comment="" dx1="44.0"/>
+				<Connection Source="E_FWD.CNF" Destination="Hutschienenmoped_4_DO.INIT" Comment=""/>
+			</EventConnections>
+		</SubAppNetwork>
+	</Application>
+	<Application Name="App2" Comment="">
+		<SubAppNetwork>
+			<FB Name="DigitalInput_I2_SINGLE_CLICK" Type="IX" Comment="" x="3580.0" y="2512.0">
+				<Parameter Name="QI" Value="TRUE"/>
+			</FB>
+			<FB Name="E_T_FF" Type="E_T_FF" Comment="" x="5132.0" y="2696.0">
+			</FB>
+			<FB Name="DigitalOutput_Q2" Type="QX" Comment="" x="6068.0" y="2604.0">
+				<Parameter Name="QI" Value="TRUE"/>
+			</FB>
+			<EventConnections>
+				<Connection Source="E_T_FF.EO" Destination="DigitalOutput_Q2.REQ" Comment=""/>
+				<Connection Source="DigitalInput_I2_SINGLE_CLICK.INITO" Destination="DigitalOutput_Q2.INIT" Comment="" dx1="668.0" dx2="460.0" dy="-12.0"/>
+				<Connection Source="DigitalInput_I2_SINGLE_CLICK.IND" Destination="E_T_FF.CLK" Comment=""/>
+			</EventConnections>
+			<DataConnections>
+				<Connection Source="E_T_FF.Q" Destination="DigitalOutput_Q2.OUT" Comment="" dx1="44.0"/>
+			</DataConnections>
+		</SubAppNetwork>
+	</Application>
+	<Device Name="FORTE_PC" Type="FORTE_PC" Comment="" x="2084.0" y="700.0">
+		<Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+		<Attribute Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+		<Attribute Name="Color" Type="STRING" Value="255,190,111"/>
+		<Resource Name="EMB_RES" Type="EMB_RES" Comment="" x="0.0" y="0.0">
+			<FBNetwork>
+				<FB Name="DigitalInput_I1" Type="IX" Comment="" x="1608.0" y="960.0">
+					<Parameter Name="QI" Value="TRUE"/>
+				</FB>
+				<FB Name="E_FWD" Type="E_FWD" Comment="" x="200.0" y="912.0">
+				</FB>
+				<FB Name="Hutschienenmoped_3_DI_SINGLE_CLICK" Type="Hutschienenmoped_3_DI_SINGLE_CLICK" Comment="" x="1092.0" y="2052.0">
+					<Parameter Name="QI" Value="TRUE"/>
+					<Parameter Name="u8SAMember" Value="255"/>
+					<Parameter Name="u16ObjId" Value="65535"/>
+					<Parameter Name="DigitalInput_I1" Value="&quot;DigitalInput_I1_SINGLE_CLICK&quot;"/>
+					<Parameter Name="DigitalInput_I2" Value="&quot;DigitalInput_I2_SINGLE_CLICK&quot;"/>
+					<Parameter Name="DigitalInput_I3" Value="&quot;DigitalInput_I3_SINGLE_CLICK&quot;"/>
+				</FB>
+				<FB Name="Hutschienenmoped_3_DI" Type="Hutschienenmoped_3_DI" Comment="" x="1664.0" y="912.0">
+					<Parameter Name="QI" Value="TRUE"/>
+					<Parameter Name="u8SAMember" Value="255"/>
+					<Parameter Name="u16ObjId" Value="65535"/>
+					<Parameter Name="DigitalInput_I1" Value="&quot;DigitalInput_I1&quot;"/>
+					<Parameter Name="DigitalInput_I2" Value="&quot;DigitalInput_I2&quot;"/>
+					<Parameter Name="DigitalInput_I3" Value="&quot;DigitalInput_I3&quot;"/>
+				</FB>
+				<FB Name="Hutschienenmoped_4_DO" Type="Hutschienenmoped_4_DO" Comment="" x="636.0" y="912.0">
+					<Parameter Name="QI" Value="TRUE"/>
+					<Parameter Name="u8SAMember" Value="255"/>
+					<Parameter Name="u16ObjId" Value="65535"/>
+					<Parameter Name="DigitalOutput_Q1" Value="&quot;DigitalOutput_Q1&quot;"/>
+					<Parameter Name="DigitalOutput_Q2" Value="&quot;DigitalOutput_Q2&quot;"/>
+					<Parameter Name="DigitalOutput_Q3" Value="&quot;DigitalOutput_Q3&quot;"/>
+					<Parameter Name="DigitalOutput_Q4" Value="&quot;DigitalOutput_Q4&quot;"/>
+				</FB>
+				<FB Name="DigitalOutput_Q1" Type="QX" Comment="" x="1540.0" y="912.0">
+					<Parameter Name="QI" Value="TRUE"/>
+				</FB>
+				<FB Name="DigitalInput_I2_SINGLE_CLICK" Type="IX" Comment="" x="3580.0" y="2512.0">
+					<Parameter Name="QI" Value="TRUE"/>
+				</FB>
+				<FB Name="DigitalOutput_Q2" Type="QX" Comment="" x="6068.0" y="2604.0">
+					<Parameter Name="QI" Value="TRUE"/>
+				</FB>
+				<FB Name="E_T_FF" Type="E_T_FF" Comment="" x="5132.0" y="2696.0">
+				</FB>
+				<EventConnections>
+					<Connection Source="E_FWD.CNF" Destination="Hutschienenmoped_3_DI_SINGLE_CLICK.INIT" Comment=""/>
+					<Connection Source="E_FWD.CNF" Destination="Hutschienenmoped_3_DI.INIT" Comment=""/>
+					<Connection Source="E_FWD.CNF" Destination="Hutschienenmoped_4_DO.INIT" Comment=""/>
+					<Connection Source="DigitalInput_I1.INITO" Destination="DigitalOutput_Q1.INIT" Comment=""/>
+					<Connection Source="DigitalInput_I1.IND" Destination="DigitalOutput_Q1.REQ" Comment=""/>
+					<Connection Source="DigitalInput_I2_SINGLE_CLICK.INITO" Destination="DigitalOutput_Q2.INIT" Comment=""/>
+					<Connection Source="DigitalInput_I2_SINGLE_CLICK.IND" Destination="E_T_FF.CLK" Comment=""/>
+					<Connection Source="E_T_FF.EO" Destination="DigitalOutput_Q2.REQ" Comment=""/>
+				</EventConnections>
+				<DataConnections>
+					<Connection Source="DigitalInput_I1.IN" Destination="DigitalOutput_Q1.OUT" Comment=""/>
+					<Connection Source="E_T_FF.Q" Destination="DigitalOutput_Q2.OUT" Comment=""/>
+				</DataConnections>
+			</FBNetwork>
+		</Resource>
+	</Device>
+	<Mapping From="App1.DigitalInput_I1" To="FORTE_PC.EMB_RES.DigitalInput_I1"/>
+	<Mapping From="Mapping.E_FWD" To="FORTE_PC.EMB_RES.E_FWD"/>
+	<Mapping From="Mapping.Hutschienenmoped_3_DI_SINGLE_CLICK" To="FORTE_PC.EMB_RES.Hutschienenmoped_3_DI_SINGLE_CLICK"/>
+	<Mapping From="Mapping.Hutschienenmoped_3_DI" To="FORTE_PC.EMB_RES.Hutschienenmoped_3_DI"/>
+	<Mapping From="Mapping.Hutschienenmoped_4_DO" To="FORTE_PC.EMB_RES.Hutschienenmoped_4_DO"/>
+	<Mapping From="App1.DigitalOutput_Q1" To="FORTE_PC.EMB_RES.DigitalOutput_Q1"/>
+	<Mapping From="App2.DigitalInput_I2_SINGLE_CLICK" To="FORTE_PC.EMB_RES.DigitalInput_I2_SINGLE_CLICK"/>
+	<Mapping From="App2.DigitalOutput_Q2" To="FORTE_PC.EMB_RES.DigitalOutput_Q2"/>
+	<Mapping From="App2.E_T_FF" To="FORTE_PC.EMB_RES.E_T_FF"/>
+	<Segment Name="Ethernet" Type="Ethernet" Comment="" x="3452.0" y="404.0" dx1="1200.0">
+		<Attribute Name="Color" Type="STRING" Value="204,225,138"/>
+	</Segment>
+	<Link SegmentName="Ethernet" CommResource="FORTE_PC" Comment="">
+	</Link>
+</System>
