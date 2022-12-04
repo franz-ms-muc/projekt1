@@ -57,21 +57,49 @@
 	</Application>
 	<Application Name="App2" Comment="">
 		<SubAppNetwork>
-			<FB Name="E_T_FF" Type="E_T_FF" Comment="" x="5132.0" y="2604.0">
+			<FB Name="Stromstossschalter" Type="E_T_FF" Comment="" x="5132.0" y="2296.0">
 			</FB>
-			<FB Name="DigitalInput_I2_SINGLE_CLICK" Type="IX" Comment="" x="3580.0" y="2512.0">
+			<FB Name="DigitalOutput_Q2" Type="QX" Comment="" x="6424.0" y="2204.0">
 				<Parameter Name="QI" Value="TRUE"/>
 			</FB>
-			<FB Name="DigitalOutput_Q2" Type="QX" Comment="" x="6068.0" y="2512.0">
+			<FB Name="DigitalInput_I2_SINGLE_CLICK" Type="IE" Comment="" x="3580.0" y="2204.0">
 				<Parameter Name="QI" Value="TRUE"/>
 			</FB>
 			<EventConnections>
-				<Connection Source="DigitalInput_I2_SINGLE_CLICK.IND" Destination="E_T_FF.CLK" Comment=""/>
-				<Connection Source="DigitalInput_I2_SINGLE_CLICK.INITO" Destination="DigitalOutput_Q2.INIT" Comment="" dx1="532.0" dx2="460.0" dy="-104.0"/>
-				<Connection Source="E_T_FF.EO" Destination="DigitalOutput_Q2.REQ" Comment=""/>
+				<Connection Source="Stromstossschalter.EO" Destination="DigitalOutput_Q2.REQ" Comment=""/>
+				<Connection Source="DigitalInput_I2_SINGLE_CLICK.INITO" Destination="DigitalOutput_Q2.INIT" Comment="" dx1="604.0" dx2="460.0" dy="-104.0"/>
+				<Connection Source="DigitalInput_I2_SINGLE_CLICK.IND" Destination="Stromstossschalter.CLK" Comment=""/>
 			</EventConnections>
 			<DataConnections>
-				<Connection Source="E_T_FF.Q" Destination="DigitalOutput_Q2.OUT" Comment="" dx1="44.0"/>
+				<Connection Source="Stromstossschalter.Q" Destination="DigitalOutput_Q2.OUT" Comment="" dx1="400.0"/>
+			</DataConnections>
+		</SubAppNetwork>
+	</Application>
+	<Application Name="App3" Comment="">
+		<SubAppNetwork>
+			<FB Name="DigitalOutput_Q2" Type="QX" Comment="" x="3492.0" y="1512.0">
+				<Parameter Name="QI" Value="TRUE"/>
+			</FB>
+			<FB Name="DigitalInput_I1_SINGLE_CLICK" Type="IE" Comment="" x="1092.0" y="912.0">
+				<Parameter Name="QI" Value="TRUE"/>
+			</FB>
+			<FB Name="Schalter" Type="E_SR" Comment="" x="2644.0" y="1604.0">
+			</FB>
+			<FB Name="DigitalInput_I2_SINGLE_CLICK" Type="IE" Comment="" x="1092.0" y="1604.0">
+				<Parameter Name="QI" Value="TRUE"/>
+			</FB>
+			<FB Name="E_FWD" Type="E_FWD" Comment="" x="200.0" y="912.0">
+			</FB>
+			<EventConnections>
+				<Connection Source="DigitalInput_I1_SINGLE_CLICK.INITO" Destination="DigitalOutput_Q2.INIT" Comment="" dx1="1468.0"/>
+				<Connection Source="Schalter.EO" Destination="DigitalOutput_Q2.REQ" Comment=""/>
+				<Connection Source="E_FWD.CNF" Destination="DigitalInput_I1_SINGLE_CLICK.INIT" Comment=""/>
+				<Connection Source="E_FWD.CNF" Destination="DigitalInput_I2_SINGLE_CLICK.INIT" Comment="" dx1="44.0"/>
+				<Connection Source="DigitalInput_I2_SINGLE_CLICK.IND" Destination="Schalter.R" Comment=""/>
+				<Connection Source="DigitalInput_I1_SINGLE_CLICK.IND" Destination="Schalter.S" Comment="" dx1="464.0"/>
+			</EventConnections>
+			<DataConnections>
+				<Connection Source="Schalter.Q" Destination="DigitalOutput_Q2.OUT" Comment="" dx1="44.0"/>
 			</DataConnections>
 		</SubAppNetwork>
 	</Application>
@@ -108,12 +136,9 @@
 					<Parameter Name="DigitalOutput_Q3" Value="&quot;DigitalOutput_Q3&quot;"/>
 					<Parameter Name="DigitalOutput_Q4" Value="&quot;DigitalOutput_Q4&quot;"/>
 				</FB>
-				<FB Name="E_T_FF" Type="E_T_FF" Comment="" x="5132.0" y="2696.0">
+				<FB Name="Stromstossschalter" Type="E_T_FF" Comment="" x="5132.0" y="2696.0">
 				</FB>
 				<FB Name="DigitalInput_I1" Type="IX" Comment="" x="380.0" y="912.0">
-					<Parameter Name="QI" Value="TRUE"/>
-				</FB>
-				<FB Name="DigitalInput_I2_SINGLE_CLICK" Type="IX" Comment="" x="3580.0" y="2512.0">
 					<Parameter Name="QI" Value="TRUE"/>
 				</FB>
 				<FB Name="DigitalOutput_Q1" Type="QX" Comment="" x="1540.0" y="912.0">
@@ -122,19 +147,42 @@
 				<FB Name="DigitalOutput_Q2" Type="QX" Comment="" x="6068.0" y="2512.0">
 					<Parameter Name="QI" Value="TRUE"/>
 				</FB>
+				<FB Name="DigitalInput_I2_SINGLE_CLICK" Type="IE" Comment="" x="3580.0" y="2512.0">
+					<Parameter Name="QI" Value="TRUE"/>
+				</FB>
+				<FB Name="DigitalInput_I2_SINGLE_CLICK" Type="IE" Comment="" x="1092.0" y="1604.0">
+					<Parameter Name="QI" Value="TRUE"/>
+				</FB>
+				<FB Name="E_FWD" Type="E_FWD" Comment="" x="200.0" y="912.0">
+				</FB>
+				<FB Name="Schalter" Type="E_SR" Comment="" x="2644.0" y="1604.0">
+				</FB>
+				<FB Name="DigitalInput_I1_SINGLE_CLICK" Type="IE" Comment="" x="1092.0" y="912.0">
+					<Parameter Name="QI" Value="TRUE"/>
+				</FB>
+				<FB Name="DigitalOutput_Q2" Type="QX" Comment="" x="3492.0" y="1512.0">
+					<Parameter Name="QI" Value="TRUE"/>
+				</FB>
 				<EventConnections>
 					<Connection Source="E_FWD.CNF" Destination="Hutschienenmoped_3_DI_SINGLE_CLICK.INIT" Comment=""/>
 					<Connection Source="E_FWD.CNF" Destination="Hutschienenmoped_3_DI.INIT" Comment=""/>
 					<Connection Source="E_FWD.CNF" Destination="Hutschienenmoped_4_DO.INIT" Comment=""/>
-					<Connection Source="DigitalInput_I2_SINGLE_CLICK.IND" Destination="E_T_FF.CLK" Comment=""/>
 					<Connection Source="DigitalInput_I1.INITO" Destination="DigitalOutput_Q1.INIT" Comment=""/>
 					<Connection Source="DigitalInput_I1.IND" Destination="DigitalOutput_Q1.REQ" Comment=""/>
+					<Connection Source="Stromstossschalter.EO" Destination="DigitalOutput_Q2.REQ" Comment=""/>
 					<Connection Source="DigitalInput_I2_SINGLE_CLICK.INITO" Destination="DigitalOutput_Q2.INIT" Comment=""/>
-					<Connection Source="E_T_FF.EO" Destination="DigitalOutput_Q2.REQ" Comment=""/>
+					<Connection Source="DigitalInput_I2_SINGLE_CLICK.IND" Destination="Stromstossschalter.CLK" Comment=""/>
+					<Connection Source="E_FWD.CNF" Destination="DigitalInput_I2_SINGLE_CLICK.INIT" Comment=""/>
+					<Connection Source="DigitalInput_I2_SINGLE_CLICK.IND" Destination="Schalter.R" Comment=""/>
+					<Connection Source="E_FWD.CNF" Destination="DigitalInput_I1_SINGLE_CLICK.INIT" Comment=""/>
+					<Connection Source="DigitalInput_I1_SINGLE_CLICK.IND" Destination="Schalter.S" Comment=""/>
+					<Connection Source="DigitalInput_I1_SINGLE_CLICK.INITO" Destination="DigitalOutput_Q2.INIT" Comment=""/>
+					<Connection Source="Schalter.EO" Destination="DigitalOutput_Q2.REQ" Comment=""/>
 				</EventConnections>
 				<DataConnections>
 					<Connection Source="DigitalInput_I1.IN" Destination="DigitalOutput_Q1.OUT" Comment=""/>
-					<Connection Source="E_T_FF.Q" Destination="DigitalOutput_Q2.OUT" Comment=""/>
+					<Connection Source="Stromstossschalter.Q" Destination="DigitalOutput_Q2.OUT" Comment=""/>
+					<Connection Source="Schalter.Q" Destination="DigitalOutput_Q2.OUT" Comment=""/>
 				</DataConnections>
 			</FBNetwork>
 		</Resource>
@@ -143,11 +191,16 @@
 	<Mapping From="Mapping.Hutschienenmoped_3_DI_SINGLE_CLICK" To="FORTE_PC.EMB_RES.Hutschienenmoped_3_DI_SINGLE_CLICK"/>
 	<Mapping From="Mapping.Hutschienenmoped_3_DI" To="FORTE_PC.EMB_RES.Hutschienenmoped_3_DI"/>
 	<Mapping From="Mapping.Hutschienenmoped_4_DO" To="FORTE_PC.EMB_RES.Hutschienenmoped_4_DO"/>
-	<Mapping From="App2.E_T_FF" To="FORTE_PC.EMB_RES.E_T_FF"/>
+	<Mapping From="App2.Stromstossschalter" To="FORTE_PC.EMB_RES.Stromstossschalter"/>
 	<Mapping From="App1.DigitalInput_I1" To="FORTE_PC.EMB_RES.DigitalInput_I1"/>
-	<Mapping From="App2.DigitalInput_I2_SINGLE_CLICK" To="FORTE_PC.EMB_RES.DigitalInput_I2_SINGLE_CLICK"/>
 	<Mapping From="App1.DigitalOutput_Q1" To="FORTE_PC.EMB_RES.DigitalOutput_Q1"/>
 	<Mapping From="App2.DigitalOutput_Q2" To="FORTE_PC.EMB_RES.DigitalOutput_Q2"/>
+	<Mapping From="App2.DigitalInput_I2_SINGLE_CLICK" To="FORTE_PC.EMB_RES.DigitalInput_I2_SINGLE_CLICK"/>
+	<Mapping From="App3.DigitalInput_I2_SINGLE_CLICK" To="FORTE_PC.EMB_RES.DigitalInput_I2_SINGLE_CLICK"/>
+	<Mapping From="App3.E_FWD" To="FORTE_PC.EMB_RES.E_FWD"/>
+	<Mapping From="App3.Schalter" To="FORTE_PC.EMB_RES.Schalter"/>
+	<Mapping From="App3.DigitalInput_I1_SINGLE_CLICK" To="FORTE_PC.EMB_RES.DigitalInput_I1_SINGLE_CLICK"/>
+	<Mapping From="App3.DigitalOutput_Q2" To="FORTE_PC.EMB_RES.DigitalOutput_Q2"/>
 	<Segment Name="Ethernet" Type="Ethernet" Comment="" x="3452.0" y="404.0" dx1="1200.0">
 		<Attribute Name="Color" Type="STRING" Value="204,225,138"/>
 	</Segment>
